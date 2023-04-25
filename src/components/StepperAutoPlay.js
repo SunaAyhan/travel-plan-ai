@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints?.down("md")]: {
             width: "100%",
             maxHeight: "30vh !important",
+            borderRadius: "1rem !important",
         },
         [theme.breakpoints?.up("md")]: {
             width: "100%",
@@ -55,9 +56,21 @@ function SwipeableTextMobileStepper() {
 
     const questions = [
         {
+            question: "Where do you live?",
+            label: "Origin Location",
+            imgPath: "/homi.gif",
+            onChange: setDestination,
+        },
+        {
             question: "Where do you want to travel to?",
             label: "Destination Country",
             imgPath: "/travel.gif",
+            onChange: setDestination,
+        },
+        {
+            question: "What dates are you planning to travel between?",
+            label: "Date",
+            imgPath: "/lond.gif",
             onChange: setDestination,
         },
         {
@@ -96,6 +109,7 @@ function SwipeableTextMobileStepper() {
             imgPath: "/Bus.gif",
             onChange: setTransportation,
         },
+
     ];
     const classes = useStyles();
     const theme = useTheme();

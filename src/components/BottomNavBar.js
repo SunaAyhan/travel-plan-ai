@@ -31,7 +31,7 @@ export default function FixedBottomNavigation() {
     return (
         <Box sx={{
             pb: 7,
-            marginTop: "5rem",
+            marginTop: "10vh",
             overflow: "hidden",
         }} ref={ref}>
             <CssBaseline />
@@ -45,9 +45,24 @@ export default function FixedBottomNavigation() {
                         setValue(newValue);
                     }}
                 >
-                    <BottomNavigationAction label="Create Plan" />
-                    <BottomNavigationAction label="Hotel List" />
-                    <BottomNavigationAction label="Tour&Activities" />
+                    <BottomNavigationAction sx={{
+                        "& .Mui-selected": {
+                            color: '#45b398',
+                            fontWeight: 'bold',
+                        }
+                    }} label="Create Plan" />
+                    <BottomNavigationAction sx={{
+                        "& .Mui-selected": {
+                            color: '#45b398',
+                            fontWeight: 'bold',
+                        }
+                    }} label="Hotel List" />
+                    <BottomNavigationAction sx={{
+                        "& .Mui-selected": {
+                            color: '#45b398',
+                            fontWeight: 'bold',
+                        }
+                    }} label="Tour&Activities" />
 
                 </BottomNavigation>
             </Paper>

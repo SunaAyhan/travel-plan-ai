@@ -72,12 +72,7 @@ function QuestionForm({ label, question, onChange }) {
                 <form className={classes.form} action="/action_page.php">
                     {/* <Grid container>     <label className={classes.label} for="fname">Location</label></Grid> */}
                     <Grid container>    <input type="text" onChange={handleInputChange} className={classes.input} id="fname" name="firstname" placeholder={label} />
-
                     </Grid>
-
-
-
-
                 </form>
 
             </LoadingOverlay>
