@@ -7,6 +7,7 @@ import { createTheme } from "@mui/material";
 import Home from './pages/Home';
 import Question from "./pages/Questions";
 import Result from "./pages/Result";
+import FixedBottomNavigation from "./components/BottomNavBar";
 
 const theme = createTheme();
 function App() {
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}>   </Route>
         <Route path="/home" element={<Home />} />
-        <Route path="/questions" element={<Question />} />
+        <Route path="/questions" element={<FixedBottomNavigation />} />
         <Route path="/result" element={<Result />} />
 
 

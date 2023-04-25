@@ -5,6 +5,7 @@ import { Button, Card } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useNavigate } from 'react-router-dom';
 import AnimatedButon from '../components/AnimatedButton';
+import DrawerAppBar from '../components/AppBar';
 const useStyles = makeStyles({
     root: {
         margin: "0px ",
@@ -20,15 +21,20 @@ const useStyles = makeStyles({
     },
     title: {
         padding: "0px",
-        fontSize: "40px",
+        fontSize: "30px",
         fontWeight: "bold",
-        color: 'white'
+        color: 'white',
+        fontFamily: 'Cardo',
+        textAlign: 'center',
+        marginTop: '10px',
     },
     card: {
         opacity: "0.9",
-        padding: "20px",
+        padding: "15px",
         backgroundColor: "#45b398 !important",
         borderRadius: "30px !important",
+        boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.75)",
+
 
     },
 
@@ -47,6 +53,7 @@ function Home() {
     const classes = useStyles();
     return (
         <div className={classes.root} >
+            <DrawerAppBar />
             <div style={{
                 display: "flex",
                 justifyContent: "center",

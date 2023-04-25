@@ -1,6 +1,6 @@
 .button--piyo {
-    --main_color: #45b398;
-    --sub_color1: #45b398;
+    --main_color: rgb(69, 179, 152);
+    --sub_color1: rgb(69, 179, 152);
     --sub_color2: #f9af6a;
     --base_color: white;
     --border_radius1: 60px 60px 40px 40px / 48px 48px 30px 30px;
@@ -623,7 +623,7 @@
 /* 本体と関係ないスタイル */
 .container {
 
-    margin-top: 5rem;
+    margin-top: 10rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

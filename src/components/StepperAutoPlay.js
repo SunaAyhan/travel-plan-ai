@@ -17,6 +17,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoadingOverlay from "react-loading-overlay";
 import Loading from './Loading';
+import DrawerAppBar from "./AppBar";
 
 const useStyles = makeStyles((theme) => ({
     img: {
@@ -163,12 +164,16 @@ You should write plan for these informations: destination: ${destination}, budge
     }, []);
     return (
         <Loading active={loading} >
+            <DrawerAppBar />
             <Box
                 sx={{
                     maxWidth: 450,
                     flexGrow: 1,
                     backgroundColor: "#45b398",
                     borderRadius: "1rem",
+                    marginRight: "2rem",
+                    marginLeft: "2rem",
+                    marginTop: "4rem"
                 }}
             >
                 <GoogleFontLoader
