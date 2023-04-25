@@ -10,6 +10,7 @@ import Paper from '@mui/material/Paper';
 import SwipeableTextMobileStepper from './StepperAutoPlay';
 import HotelList from './Hotels';
 import Activities from './Activities';
+import Result from '../pages/Result';
 
 export default function FixedBottomNavigation() {
     const [value, setValue] = React.useState(0);
@@ -18,7 +19,7 @@ export default function FixedBottomNavigation() {
     const renderTabContent = (value) => {
         switch (value) {
             case 0:
-                return <SwipeableTextMobileStepper />;
+                return <Result />;
             case 1:
                 return <HotelList />;
             case 2:
@@ -31,7 +32,6 @@ export default function FixedBottomNavigation() {
     return (
         <Box sx={{
             pb: 7,
-            marginTop: "10vh",
             overflow: "hidden",
         }} ref={ref}>
             <CssBaseline />

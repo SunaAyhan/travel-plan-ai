@@ -18,7 +18,10 @@ import BasicRating from "./Rating";
 
 export default function TourCard({ data }) {
     return (
-        <>
+        <div style={{
+            
+            marginTop: "10vh",
+        }} >
             <Card
                 style={{
                     padding: "30px",
@@ -35,7 +38,18 @@ export default function TourCard({ data }) {
                 >
                     {data.name}
                 </p>
-                <BasicRating value={data.rating} />
+                {/* description */}
+                <p
+                    style={{
+                        fontWeight: "bold",
+                        fontSize: "15px",
+                        textAlign: "center",
+                    }}
+                >
+                    {data.description}
+                </p>
+                
+                
                 <img width={"80%"} src={data.imageSrc} />
                 <Button
                     style={{
@@ -46,10 +60,13 @@ export default function TourCard({ data }) {
                         textTransform: "none",
                         marginTop: "10px",
                     }}
+                    onClick={() => { 
+                        window.location.href = data.bookingLink;
+                    }}
                 >
                     Katıl <ArrowForwardIcon />
                 </Button>
             </Card>
-        </>
+        </div>
     );
 }

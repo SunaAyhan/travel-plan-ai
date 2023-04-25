@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 const useStyles = makeStyles({
     root: {
         margin: "0px ",
-        padding: "1.2rem",
+        marginTop: "0px",
         backgroundImage: `url(${backgroundImage})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",

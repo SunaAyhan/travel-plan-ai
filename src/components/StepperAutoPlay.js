@@ -45,8 +45,10 @@ const useStyles = makeStyles((theme) => ({
 function SwipeableTextMobileStepper() {
     const navigate = useNavigate();
 
+    const [origin, setOrigin] = useState("");
     const [destination, setDestination] = useState("");
     const [budget, setBudget] = useState("");
+    const [interval, setInterval] = useState("");
     const [duration, setDuration] = useState("");
     const [interests, setInterests] = useState("");
     const [accommodation, setAccommodation] = useState("");
@@ -59,7 +61,7 @@ function SwipeableTextMobileStepper() {
             question: "Where do you live?",
             label: "Origin Location",
             imgPath: "/homi.gif",
-            onChange: setDestination,
+            onChange: setOrigin,
         },
         {
             question: "Where do you want to travel to?",
@@ -71,7 +73,7 @@ function SwipeableTextMobileStepper() {
             question: "What dates are you planning to travel between?",
             label: "Date",
             imgPath: "/lond.gif",
-            onChange: setDestination,
+            onChange: setInterval,
         },
         {
             question: "What is your travel budget?",
@@ -134,33 +136,12 @@ function SwipeableTextMobileStepper() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const input = `I want you to act as a travel guide. 
-            Create a personalized travel itinerary for a trip to a specific destination,
-            keeping in mind the traveler's budget, interests, preferred travel style, accommodation, and transportation.
-           Please include details for each day such as recommended activities, restaurants, and local attractions to visit, along with estimated costs for each day. Additionally, include details on how to get around the destination, such as transportation options, and recommendations for accommodations that align with the traveler's preferences. Please provide a detailed itinerary that would make for a comfortable and enjoyable trip. 
-            (Example:
-                <div>
-                <b style="color: #45b398"> Day 1: <br /> </b>
-                <b> Transport: </b>  Fly into Barcelona El Prat Airport (BCN). Take the Aerobus to Plaça de Catalunya ($6).\n
-                <b> Accomidation:</b>  Check into your budget-friendly Airbnb or hotel in the El Raval or Gothic Quarter neighborhoods ($60/night).\n
-                <b>Places: </b> Walk around the Gothic Quarter, visiting Barcelona Cathedral, Plaça Reial, and Plaça de Sant Jaume.\n
-                <b> Activities:</b>   Join a free walking tour of the Gothic Quarter (~$5-10 suggested tip for the guide).\n
-                <b> Food:  </b> Have breakfast at Granja La Pallaresa (churros and hot chocolate, ~$10), lunch at Quimet & Quimet (tapas, ~$15), and dinner at La Taqueria (Mexican cuisine, ~$20). \n 
-                <b>Estimated Cost: </b> $121\n  </div> 
-                <hr class="dashed">
-                <div>
-                <b style="color: #45b398"> Day 2: <br /> </b>
-                <b> Transport: </b>  Get a T-10 metro pass (~$11) for multiple rides on the metro, buses, and trams.\n
-                <b>Places: </b> ...\n
-                <b> Activities:</b>...\n
-                <b> Food:  </b>... \n  Estimated Cost:  </b> $150 <br /> </div>
-                
-                )  \n\n The trip should last for a specified duration, and the final itinerary should be presented in an HTML format(you must write title's bold, add newline between days).
-You should write plan for these informations: destination: ${destination}, budget: ${budget}, duration: ${duration}, interests: ${interests}, accommodation: ${accommodation}, travel style: ${travelStyle}, transportation: ${transportation} `;
+            
+// You should write plan for these informations: destination: ${destination}, budget: ${budget}, duration: ${duration}, interests: ${interests}, accommodation: ${accommodation}, travel style: ${travelStyle}, transportation: ${transportation}
             setLoading(true);
-            const result = await callGPTAPI(input);
+            const result = await callGPTAPI(origin,interval,destination,budget,duration,interests,accommodation,travelStyle,transportation);
             setTravelPlan(result);
-            navigate("/result", { state: { travelPlan: result } });
+            navigate("/result", { state: { travelPlan: result, city: destination } });
         } catch (error) {
             console.error("Error in handleSubmit:", error);
         }
@@ -169,16 +150,17 @@ You should write plan for these informations: destination: ${destination}, budge
         }
     };
     React.useEffect(() => {
-        intervalId = setInterval(() => {
-            setActiveStep((prevActiveStep) => (prevActiveStep + 1) % maxSteps);
-        }, 900000); // Change the interval time here to control the autoplay speed
+       
         return () => {
             clearInterval(intervalId); // Clear interval when component unmounts or when user interacts
         };
     }, []);
     return (
-        <Loading active={loading} >
-            <DrawerAppBar />
+        <Loading active={loading}  >
+            <DrawerAppBar style={{
+            marginTop: "10vh",
+
+        }}  />
             <Box
                 sx={{
                     maxWidth: 450,
@@ -187,7 +169,7 @@ You should write plan for these informations: destination: ${destination}, budge
                     borderRadius: "1rem",
                     marginRight: "2rem",
                     marginLeft: "2rem",
-                    marginTop: "4rem"
+                    marginTop: "15vh"
                 }}
             >
                 <GoogleFontLoader

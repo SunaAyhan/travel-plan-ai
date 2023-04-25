@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Question from "./pages/Questions";
 import Result from "./pages/Result";
 import FixedBottomNavigation from "./components/BottomNavBar";
+import SwipeableTextMobileStepper from "./components/StepperAutoPlay";
 
 const theme = createTheme();
 function App() {
@@ -16,8 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}>   </Route>
         <Route path="/home" element={<Home />} />
-        <Route path="/questions" element={<FixedBottomNavigation />} />
-        <Route path="/result" element={<Result />} />
+        <Route path="/questions" element={<SwipeableTextMobileStepper />} />
+        <Route path="/result" element={<FixedBottomNavigation />} />
 
 
 
