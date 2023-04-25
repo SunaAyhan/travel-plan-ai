@@ -1,0 +1,2 @@
+orange: #fad1a5
+green: #45b398

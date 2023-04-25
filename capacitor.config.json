@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.app",
+  "appName": "travel-plan-ai",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}
