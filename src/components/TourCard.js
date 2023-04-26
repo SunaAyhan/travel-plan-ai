@@ -19,7 +19,7 @@ import BasicRating from "./Rating";
 export default function TourCard({ data }) {
     return (
         <div style={{
-            
+
             marginTop: "10vh",
         }} >
             <Card
@@ -34,6 +34,7 @@ export default function TourCard({ data }) {
                         fontWeight: "bold",
                         fontSize: "20px",
                         textAlign: "center",
+                        color: "#45b398",
                     }}
                 >
                     {data.name}
@@ -46,11 +47,14 @@ export default function TourCard({ data }) {
                         textAlign: "center",
                     }}
                 >
-                    {data.description}
+                    <img height={"200vh"} src={data.pictures[1]} />
+                    <br />
+
+                    {/* print first 100 letters of description */}
+                    {data.description?.slice(0, 100) + "..."}
                 </p>
-                
-                
-                <img width={"80%"} src={data.imageSrc} />
+
+
                 <Button
                     style={{
                         backgroundColor: "#45b398",
@@ -60,7 +64,7 @@ export default function TourCard({ data }) {
                         textTransform: "none",
                         marginTop: "10px",
                     }}
-                    onClick={() => { 
+                    onClick={() => {
                         window.location.href = data.bookingLink;
                     }}
                 >
